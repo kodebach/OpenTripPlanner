@@ -289,7 +289,20 @@
                     <failOnUnableToExtractRepoInfo>false</failOnUnableToExtractRepoInfo>
                 </configuration>
             </plugin>
-
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>**/logback.xml</exclude>
+                    </excludes>
+                    <archive>
+                    <manifest>
+                        <mainClass>org.opentripplanner.standalone.OTPMain</mainClass>
+                    </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
             <!-- There used to be a dependency-plugin:copy-dependencies plugin entry
               here, but the shade-plugin will explode the dependencies even if they aren't
               manually copied in. -->
